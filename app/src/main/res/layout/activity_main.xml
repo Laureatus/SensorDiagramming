@@ -9,37 +9,42 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.42"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65999997">
+        app:layout_constraintVertical_bias="0.45">
 
-        <TextView
-            android:id="@+id/textView_x"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/padding"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="X" />
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:paddingLeft="100dp">
 
-        <TextView
-            android:id="@+id/textView_y"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Y:" />
+            <TextView
+                android:id="@+id/textView_x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="X:" />
 
-        <TextView
-            android:id="@+id/textView_z"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Z:" />
+            <TextView
+                android:id="@+id/textView_y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Y:" />
+
+            <TextView
+                android:id="@+id/textView_z"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Z:" />
+        </LinearLayout>
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/lineChart"
@@ -49,63 +54,95 @@
 
         </com.github.mikephil.charting.charts.LineChart>
 
-        <Button
-            android:id="@+id/button_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:shadowColor="#AE2828"
-            android:text="Start"
-            android:textColorHighlight="#C80C0C"
-            android:textColorHint="#F12424"
-            android:textColorLink="#E12222"
-            app:rippleColor="#DA1414"
-            app:strokeColor="#E62525" />
-
-        <Button
-            android:id="@+id/button_stop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Stop" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
 
-            <TextView
-                android:id="@+id/sampling_title"
+            <Button
+                android:id="@+id/button_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sampling Rate" />
+                android:layout_weight="1"
+                android:shadowColor="#AE2828"
+                android:text="Start"
+                android:textColorHighlight="#C80C0C"
+                android:textColorHint="#F12424"
+                android:textColorLink="#E12222"
+                app:backgroundTint="@color/green_200"
+                app:rippleColor="#DA1414"
+                app:strokeColor="#E62525" />
 
-            <EditText
-                android:id="@+id/sampling_input"
-                android:layout_width="match_parent"
+            <Space
+                android:layout_width="10dp"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberSigned" />
+                android:layout_weight="1" />
 
-            <TextView
-                android:id="@+id/max_entries"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/button_stop"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Max Entries" />
+                android:layout_weight="1"
+                android:text="Stop"
+                app:backgroundTint="@color/red_200" />
+        </LinearLayout>
 
-            <EditText
-                android:id="@+id/max_entries_input"
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="numberSigned" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sampling_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sampling Rate" />
+
+                <EditText
+                    android:id="@+id/max_entries_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="numberSigned" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="59dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/max_entries"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Max Entries" />
+
+                <EditText
+                    android:id="@+id/sampling_input"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="numberSigned" />
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/submit"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit" />
+                android:text="Submit"
+                app:backgroundTint="@color/blue" />
 
         </LinearLayout>
 
